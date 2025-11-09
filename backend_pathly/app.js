@@ -15,7 +15,10 @@ const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${PORT}`;
 
 connectDB();
 
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", 
+    "https://pathly.onrender.com"],
+}));
 app.use(express.json());
 
 // Apply general rate limiting to all API routes
